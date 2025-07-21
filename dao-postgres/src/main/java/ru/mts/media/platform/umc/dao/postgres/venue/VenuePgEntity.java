@@ -3,6 +3,11 @@ package ru.mts.media.platform.umc.dao.postgres.venue;
 import jakarta.persistence.*;
 import lombok.Data;
 import ru.mts.media.platform.umc.dao.postgres.common.FullExternalIdPk;
+import ru.mts.media.platform.umc.dao.postgres.event.EventPgEntity;
+
+import java.util.Set;
+
+import static jakarta.persistence.FetchType.EAGER;
 
 @Entity
 @Data
@@ -26,4 +31,7 @@ public class VenuePgEntity {
     private String referenceId;
 
     private String name;
+
+    @ManyToMany(mappedBy = "venues", fetch = EAGER)
+    private Set<EventPgEntity> events;
 }

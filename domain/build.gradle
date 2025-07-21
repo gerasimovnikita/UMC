@@ -5,7 +5,7 @@ dependencies {
 }
 
 generateJava {
-    schemaPaths = ["${projectDir}/src/main/resources/graphql"]
+    schemaPaths = ["${projectDir}/src/main/resources/schema"]
     packageName = 'ru.mts.media.platform.umc.domain.gql'
     generateClient = false
 }

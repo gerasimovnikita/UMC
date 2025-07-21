@@ -4,6 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import ru.mts.media.platform.umc.dao.postgres.common.FullExternalIdPk;
 import ru.mts.media.platform.umc.domain.gql.types.FullExternalId;
+import ru.mts.media.platform.umc.domain.gql.types.FullExternalIdInput;
 import ru.mts.media.platform.umc.domain.gql.types.Venue;
 
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
@@ -20,10 +21,11 @@ public interface VenuePgMapper {
     @Mapping(target = "brand", source = "externalId.brandId")
     @Mapping(target = "provider", source = "externalId.providerId")
     @Mapping(target = "externalId", source = "externalId.externalId")
+    @Mapping(target = "events", ignore = true)
     VenuePgEntity asEntity(Venue venue);
 
     @Mapping(target = "brand", source = "brandId")
     @Mapping(target = "provider", source = "providerId")
     @Mapping(target = "externalId", source = "externalId")
-    FullExternalIdPk asPk(FullExternalId fullExternalId);
+    FullExternalIdPk asPk(FullExternalIdInput fullExternalId);
 }

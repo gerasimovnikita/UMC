@@ -28,6 +28,10 @@ subprojects {
         }
     }
 
+    repositories {
+        mavenCentral()
+    }
+
     dependencies {
         // Lombok dependency
         compileOnly "org.projectlombok:lombok:${lombokVersion}"
